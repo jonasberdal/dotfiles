@@ -12,3 +12,7 @@ function print_dotfiles() {
     echo "#########################################################################\n"
     cat .functions
 }
+
+function mkcd() {
+    mkdir -p "$@" && cd "$_";
+}
