@@ -1,3 +1,6 @@
+#!/usr/local/bin/zsh
+
+
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
@@ -11,6 +14,6 @@ alias gcm="git commit -m"
 alias gaaa="git add ."
 
 alias reload="source ~/.zshrc"
-alias sync_dotfiles="rsync -r --exclude '.git/' . ~"
+
 
 

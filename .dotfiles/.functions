@@ -1,18 +1,28 @@
+#!/usr/local/bin/zsh
+
+source ~/.dotfiles/functions/.pdfcracker
+source ~/.dotfiles/functions/.helm
+source ~/.dotfiles/functions/.k
+
 function print_dotfiles() {
     echo "\n#########################################################################"
     echo "zshrc: "
     echo "#########################################################################\n"
-    cat .zshrc
+    cat ~/.zshrc
     echo "\n#########################################################################"
     echo "Aliases: "
     echo "#########################################################################\n"
-    cat .aliases
+    cat ~/.dotfiles/.aliases
     echo "\n#########################################################################"
     echo "Functions: "
     echo "#########################################################################\n"
-    cat .functions
+    cat ~/.dotfiles/.functions
 }
 
 function mkcd() {
     mkdir -p "$@" && cd "$_";
+}
+
+functions sync_dotfiles() {
+    rsync -r --exclude '.git/' ~/Code/dotfiles/ ~ && source ~/.zshrc 
 }
