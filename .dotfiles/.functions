@@ -3,6 +3,7 @@
 source ~/.dotfiles/functions/.pdfcracker
 source ~/.dotfiles/functions/.helm
 source ~/.dotfiles/functions/.k
+source ~/.dotfiles/functions/kns
 source ~/.dotfiles/functions/terraform
 
 function print_dotfiles() {
