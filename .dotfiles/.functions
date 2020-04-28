@@ -1,9 +1,12 @@
 #!/usr/local/bin/zsh
 
 source ~/.dotfiles/functions/.pdfcracker
+source ~/.dotfiles/functions/gbclean
+source ~/.dotfiles/functions/gcb
 source ~/.dotfiles/functions/.helm
 source ~/.dotfiles/functions/.k
 source ~/.dotfiles/functions/kns
+source ~/.dotfiles/functions/kset
 source ~/.dotfiles/functions/terraform
 
 function print_dotfiles() {

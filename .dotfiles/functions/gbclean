@@ -4,7 +4,21 @@
 # Checks out new branch (pulls current branch first)
 #
 function gbclean() {
-: ${1?"gcb BRANCHNAME"}
-    git pull 
-    git checkout -b $1
+    echo "Looping through branches and letting you pick which to delete"
+    git for-each-ref --shell --format="ref=%(refname:short)" refs/heads | \
+        while read entry
+        do
+            eval "$entry"
+            if [[ "$ref" = "master" ]]; then
+                echo "Skipping master"
+            elif read -q "Choice?y/Y to delete ${ref}${NEWLINE}"; then
+                echo
+                echo "Deleting ${ref}"
+                git branch -D ${ref}
+            else
+                echo "${NEWLINE}Keeping $ref"
+            fi
+        done
+    
+    
 }

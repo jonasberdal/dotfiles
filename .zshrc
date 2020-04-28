@@ -91,3 +91,4 @@ source $ZSH/oh-my-zsh.sh
 
 source ~/.dotfiles/.aliases
 source ~/.dotfiles/.functions
+source ~/.dotfiles/variables
