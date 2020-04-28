@@ -5,6 +5,6 @@
 #
 function gcb() {
 : ${1?"gcb BRANCHNAME"}
-    git pull && \
+    git pull 
     git checkout -b $1
 }
