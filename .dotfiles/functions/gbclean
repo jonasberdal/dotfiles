@@ -1,0 +1,10 @@
+#!/usr/local/bin/zsh
+
+#
+# Checks out new branch (pulls current branch first)
+#
+function gbclean() {
+: ${1?"gcb BRANCHNAME"}
+    git pull 
+    git checkout -b $1
+}
