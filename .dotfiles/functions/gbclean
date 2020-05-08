@@ -7,17 +7,17 @@ function gbclean() {
     echo "Looping through branches and letting you pick which to delete"
     git for-each-ref --shell --format="ref=%(refname:short)" refs/heads | \
         while read entry
-        do
+        do  
             eval "$entry"
             if [[ "$ref" = "master" ]]; then
                 echo "Skipping master"
-            elif read -q "Choice?y/Y to delete ${ref}${NEWLINE}"; then
-                echo
-                echo "Deleting ${ref}"
+            elif read -q "Choice?Press y/Y to delete ${ref}: "; then
+                echo "${NEWLINE}Deleting ${ref}"
                 git branch -D ${ref}
             else
                 echo "${NEWLINE}Keeping $ref"
             fi
+            echo 
         done
     
     

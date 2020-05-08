@@ -6,6 +6,7 @@ source ~/.dotfiles/functions/gcb
 source ~/.dotfiles/functions/.helm
 source ~/.dotfiles/functions/.k
 source ~/.dotfiles/functions/kns
+source ~/.dotfiles/functions/knsd
 source ~/.dotfiles/functions/kset
 source ~/.dotfiles/functions/terraform
 
