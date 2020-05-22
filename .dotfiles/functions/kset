@@ -14,6 +14,8 @@ if [[ -z "$K8S_VERSION" ]]; then
   K8S_VERSION="1.14"
 fi
 
+unset kns
+
 docker run --name "$DOCKER_RAND_ID" --rm -ti \
   -v $HOME/.kube/:/.kube/ \
   bitnami/kubectl:$K8S_VERSION config use-context $argv[1]
