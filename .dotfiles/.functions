@@ -5,10 +5,13 @@ source ~/.dotfiles/functions/gbclean
 source ~/.dotfiles/functions/gcb
 source ~/.dotfiles/functions/.helm
 source ~/.dotfiles/functions/.k
+source ~/.dotfiles/functions/kcecho
+source ~/.dotfiles/functions/kcrename
 source ~/.dotfiles/functions/kns
 source ~/.dotfiles/functions/knsd
 source ~/.dotfiles/functions/kset
 source ~/.dotfiles/functions/terraform
+source ~/.dotfiles/functions/gh
 
 function print_dotfiles() {
     echo "\n#########################################################################"
