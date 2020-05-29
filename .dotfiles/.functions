@@ -4,7 +4,7 @@ source ~/.dotfiles/functions/.pdfcracker
 source ~/.dotfiles/functions/gbclean
 source ~/.dotfiles/functions/gcb
 source ~/.dotfiles/functions/.helm
-source ~/.dotfiles/functions/.k
+source ~/.dotfiles/functions/helm-unittest
 source ~/.dotfiles/functions/kcecho
 source ~/.dotfiles/functions/kcrename
 source ~/.dotfiles/functions/kns
