@@ -1,17 +1,17 @@
 #!/usr/local/bin/zsh
 
-source ~/.dotfiles/functions/.pdfcracker
-source ~/.dotfiles/functions/gbclean
-source ~/.dotfiles/functions/gcb
-source ~/.dotfiles/functions/.helm
-source ~/.dotfiles/functions/helm-unittest
-source ~/.dotfiles/functions/kcecho
-source ~/.dotfiles/functions/kcrename
-source ~/.dotfiles/functions/kns
-source ~/.dotfiles/functions/knsd
-source ~/.dotfiles/functions/kset
-source ~/.dotfiles/functions/terraform
-source ~/.dotfiles/functions/gh
+source ~/.dotfiles/funcs/pdfcracker
+source ~/.dotfiles/funcs/gbclean
+source ~/.dotfiles/funcs/gcb
+source ~/.dotfiles/funcs/helm
+source ~/.dotfiles/funcs/helm-unittest
+source ~/.dotfiles/funcs/k
+source ~/.dotfiles/funcs/kcecho
+source ~/.dotfiles/funcs/kcrename
+source ~/.dotfiles/funcs/kns
+source ~/.dotfiles/funcs/knsd
+source ~/.dotfiles/funcs/kset
+source ~/.dotfiles/funcs/terraform
 
 function print_dotfiles() {
     echo "\n#########################################################################"
