@@ -3,7 +3,10 @@
 source ~/.dotfiles/funcs/pdfcracker
 source ~/.dotfiles/funcs/gbclean
 source ~/.dotfiles/funcs/gcb
+source ~/.dotfiles/funcs/gcloud
+source ~/.dotfiles/funcs/gsutil
 source ~/.dotfiles/funcs/helm
+source ~/.dotfiles/funcs/helm2
 source ~/.dotfiles/funcs/helm-unittest
 source ~/.dotfiles/funcs/k
 source ~/.dotfiles/funcs/kcecho
@@ -11,7 +14,11 @@ source ~/.dotfiles/funcs/kcrename
 source ~/.dotfiles/funcs/kns
 source ~/.dotfiles/funcs/knsd
 source ~/.dotfiles/funcs/kset
-source ~/.dotfiles/funcs/terraform
+source ~/.dotfiles/funcs/kubectl
+source ~/.dotfiles/funcs/replicate-pr
+source ~/.dotfiles/funcs/tf
+source ~/.dotfiles/funcs/tflogin
+source ~/.dotfiles/funcs/tfplan
 
 function print_dotfiles() {
     echo "\n#########################################################################"

@@ -1,0 +1,17 @@
+#!/usr/local/bin/zsh
+
+#
+# Run gsutil commands
+#
+function gsutil() {
+
+if [[ -z "$DOCKER_RAND_ID" ]]; then
+  DOCKER_RAND_ID=$RANDOM
+fi
+
+docker run --name "$DOCKER_RAND_ID" --rm -ti \
+  -v $(pwd):$(pwd) \
+  -v "$HOME"/.kube:/root/.kube:cached \
+  -v "$HOME"/.config/gcloud:/root/.config/gcloud:cached \
+  frealmyr/cloud-sdk-editors:latest gsutil $argv
+}

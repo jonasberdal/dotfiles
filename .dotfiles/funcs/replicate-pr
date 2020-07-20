@@ -1,0 +1,10 @@
+#!/usr/local/bin/zsh
+
+function replicate-pr() {
+    gh pr create \
+        --assigne jonasberdal \
+        --base master \
+        --title "Migrate helm to v3" \
+        --body "Related: bulderbank/cloud-setup#437" \
+        --web
+}
