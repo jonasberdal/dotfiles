@@ -72,6 +72,15 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
+# Get list of gnubin directories
+export GNUBINS="$(find /usr/local/opt -type d -follow -name gnubin -print)";
+
+for bindir in ${GNUBINS[@]}; do
+  export PATH=$bindir:$PATH;
+done;
+
+PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
+
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
