@@ -6,10 +6,8 @@ source ~/.dotfiles/funcs/gcb
 source ~/.dotfiles/funcs/gcloud
 source ~/.dotfiles/funcs/gsutil
 source ~/.dotfiles/funcs/helm
-source ~/.dotfiles/funcs/helm2
-source ~/.dotfiles/funcs/helm-unittest
 source ~/.dotfiles/funcs/k
-source ~/.dotfiles/funcs/kcecho
+source ~/.dotfiles/funcs/kcc
 source ~/.dotfiles/funcs/kcrename
 source ~/.dotfiles/funcs/kns
 source ~/.dotfiles/funcs/knsd

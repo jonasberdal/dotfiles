@@ -1,7 +1,7 @@
 #!/usr/local/bin/zsh
 
 #
-# Run kubectl commands, GKE requires gcloud for helpers
+# Run gcloud commands
 #
 function gcloud() {
 
@@ -9,13 +9,14 @@ if [[ -z "$DOCKER_RAND_ID" ]]; then
   DOCKER_RAND_ID=$RANDOM
 fi
 
-#if [[ -z "$K8S_VERSION" ]]; then
-#  K8S_VERSION="1.14"
-#fi
+if [ ! -d "$HOME/.config/gcloud" ]; then
+  mkdir -p $HOME/.config/gcloud
+fi
 
 docker run --name "$DOCKER_RAND_ID" --rm -ti \
-  -v $(pwd):$(pwd) \
+  -u 1000:1000 \
   -w $(pwd) \
-  -v $HOME/.config/gcloud:/root/.config/gcloud \
-  google/cloud-sdk:latest gcloud $kns $argv[*]
+  -v $(pwd):$(pwd) \
+  -v "$HOME"/.config/gcloud:/home/clitools/.config/gcloud \
+  docker.pkg.github.com/bulderbank/cloud-cli-tools/cli-tools:latest gcloud $argv
 }
