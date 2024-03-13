@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/jonas/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -73,13 +73,13 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 # Get list of gnubin directories
-export GNUBINS="$(find /usr/local/opt -type d -follow -name gnubin -print)";
+#export GNUBINS="$(find /usr/local/opt -type d -follow -name gnubin -print)";
 
-for bindir in ${GNUBINS[@]}; do
-  export PATH=$bindir:$PATH;
-done;
+#for bindir in ${GNUBINS[@]}; do
+#  export PATH=$bindir:$PATH;
+#done;
 
-PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
+#PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
 
 # User configuration
 
@@ -98,6 +98,34 @@ PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
+# Load zsh functions and aliases
+fpath=(~/.dotfiles/functions $fpath)
+autoload -U $fpath[1]/*(.:t)
+autoload -U compinit
+
+for file in ~/.dotfiles//aliases/*; do source $file; done
+
 source ~/.dotfiles/aliases
 source ~/.dotfiles/functions
 source ~/.dotfiles/variables
+
+export PATH=$PATH:$(go env GOPATH)/bin
+export GOPRIVATE=github.com/bulderbank
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/jonas.berdal/bin/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/jonas.berdal/bin/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/jonas.berdal/bin/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/jonas.berdal/bin/google-cloud-sdk/completion.zsh.inc'; fi
+
+
+# Fix docker warning due to arm/amd mac m1
+# useful only for Mac OS Silicon M1, 
+# still working but useless for the other platforms
+docker() {
+ if [[ `uname -m` == "arm64" ]] && [[ "$1" == "run" || "$1" == "build" ]]; then
+    /usr/local/bin/docker "$1" --platform linux/amd64 "${@:2}"
+  else
+     /usr/local/bin/docker "$@"
+  fi
+}

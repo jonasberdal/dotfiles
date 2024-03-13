@@ -10,10 +10,8 @@
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias gs="git status"
-alias gcm="git commit -m"
+alias gcm="git checkout main"
 alias gaaa="git add ."
+alias tf="terraform"
 
 alias reload="source ~/.zshrc"
-
-
-

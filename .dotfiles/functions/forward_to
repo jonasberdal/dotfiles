@@ -1,0 +1,10 @@
+function forward_to() {
+   CTX=$(kubectl config current-context)
+   POD_SEARCH_TERM="$1"
+   PORT="$2"
+
+   POD_NAME=$(kubectl get pods --namespace backend-apps | grep $POD_SEARCH_TERM | head -1  | awk '{print $1;}')
+
+   echo "Forwarding to $POD_NAME $PORT:$PORT in k8s context: $CTX"
+   eval "kubectl port-forward --namespace backend-apps pod/$POD_NAME $PORT"
+}

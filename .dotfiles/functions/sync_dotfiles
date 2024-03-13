@@ -1,0 +1,4 @@
+function sync_dotfiles() {
+    rsync -r --exclude '.git/' ~/code/dotfiles/ ~ && source ~/.zshrc 
+    git config --global core.excludesfile ~/.gitignore
+}
