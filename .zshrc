@@ -1,6 +1,8 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+export PATH="/Users/jonas.berdal/.local/bin:$PATH"
+
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -98,6 +100,10 @@ source $ZSH/oh-my-zsh.sh
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
+export NVM_DIR="$HOME/.nvm"
+  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
 # Load zsh functions and aliases
 fpath=(~/.dotfiles/functions $fpath)
 autoload -U $fpath[1]/*(.:t)
@@ -112,11 +118,8 @@ source ~/.dotfiles/variables
 export PATH=$PATH:$(go env GOPATH)/bin
 export GOPRIVATE=github.com/bulderbank
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/jonas.berdal/bin/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/jonas.berdal/bin/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/jonas.berdal/bin/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/jonas.berdal/bin/google-cloud-sdk/completion.zsh.inc'; fi
+# initialise completions with ZSH's compinit
+autoload -Uz compinit && compinit
 
 
 # Fix docker warning due to arm/amd mac m1
@@ -129,3 +132,10 @@ docker() {
      /usr/local/bin/docker "$@"
   fi
 }
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/jonas.berdal/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/jonas.berdal/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/jonas.berdal/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/jonas.berdal/google-cloud-sdk/completion.zsh.inc'; fi
+
+
